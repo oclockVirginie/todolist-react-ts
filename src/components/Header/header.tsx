@@ -4,6 +4,16 @@ import React from "react";
 import { NavLink}
     from "react-router-dom";
 
+/**
+ * Composant Header
+ *
+ * Ce composant affiche le menu de l'application
+ * - il est composé de 3 liens :
+ *  - Tasks : lien vers la page des tâches
+ *  - Categories : lien vers la page des catégories
+ *  - Login : lien vers la page de login
+ *
+ */
 function Header() {
 
     return (

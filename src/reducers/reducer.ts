@@ -24,8 +24,6 @@ const initialState: IState = {
 
 
 
-export const setTasks = createAction('SET_TASKS');
-
 const reducer = createReducer(initialState, (builder) => {
     builder
         //TASKS
