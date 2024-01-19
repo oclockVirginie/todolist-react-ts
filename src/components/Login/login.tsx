@@ -1,10 +1,8 @@
-import React, {FC, useState} from "react";
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import {actionAddTask} from "../../middlewares/apiTasks";
-import axiosInstance from "../../middlewares/ApiBase";
+
 
 
 function  Login()     {
@@ -21,32 +19,9 @@ function  Login()     {
             .post("http://localhost:8000/api/login_check", params)
             .then(function (response) {
                 //   IF EMAIL ALREADY EXISTS
-                if (response.data.success === false) {
-                    toast.error(response.data.error, {
-                        position: "top-right",
-                        autoClose: 3000,
-                        hideProgressBar: true,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: false,
-                        progress: 0,
-                        toastId: "my_toast",
-                    });
-                } else {
-                    toast.success(response.data.message, {
-                        position: "top-right",
-                        autoClose: 3000,
-                        hideProgressBar: true,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: false,
-                        progress: 0,
-                        toastId: "my_toast",
-                    });
                     localStorage.removeItem("auth");
                     localStorage.setItem("auth", response.data.token);
 
-                }
             })
             .catch(function (error) {
                 console.log(error);
@@ -118,18 +93,6 @@ function  Login()     {
                     </div>
                 </div>
             </div>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss={false}
-                draggable={false}
-                pauseOnHover
-                limit={1}
-                transition={Flip}
-            />
         </>
     );
 };

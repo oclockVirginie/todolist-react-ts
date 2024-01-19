@@ -3,7 +3,6 @@ import Task from "../Task/Task";
 import TaskForm from "../TaskForm/TaskForm";
 import React, {useEffect, useState} from "react";
 import {actionLoadTasks} from "../../middlewares/apiTasks";
-import {actionLoadCategories} from "../../middlewares/apiCategories";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 
 interface TasksProps {
@@ -23,16 +22,6 @@ function Tasks() {
         },
         []
     );
-
-    // const tasksGroupByCat = tasks.reduce((acc, task) => {
-    //     if (acc[task.category.label]) {
-    //         acc[task.category.label].push(task);
-    //     } else {
-    //         acc[task.category.label] = [task];
-    //     }
-    //     return acc;
-    // }   , {} as {[key: string]: ITask[]});
-
 
     const [tasksShow, setTasksShow] = useState<ITask[] >(tasks);
     const [text, setText] = useState<string>("");
@@ -69,16 +58,7 @@ function Tasks() {
             {tasksShow.map((item) => (
                 <Task key={item.id} task={item}/>
             ))}
-            {/*{*/}
-            {/*    Object.keys(tasksGroupByCat).map((cat) =>*/}
-            {/*        tasksGroupByCat[cat].map((item) => (*/}
-            {/*            <>*/}
-            {/*                <div>{item.category.label}</div>*/}
-            {/*                <Task key={item.id} task={item}/>*/}
-            {/*            </>*/}
-            {/*        ))*/}
-            {/*    )*/}
-            {/*}*/}
+
         </div>
     );
 }

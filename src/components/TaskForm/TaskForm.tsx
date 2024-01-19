@@ -71,14 +71,6 @@ function TaskForm() {
                         },
                     })}
                     formatOptionLabel={formatOptionLabel}
-                    // styles={{
-                    //     singleValue: (provided, state) => ({
-                    //         ...provided,
-                    //         display: "flex", // To keep icon and label aligned
-                    //         alignItems: "center",
-                    //         backgroundColor : "grey"
-                    //     })
-                    // }}
                     options={categories}
                     defaultValue={defaultCategory as ICategory}
                     onChange={(category) => {

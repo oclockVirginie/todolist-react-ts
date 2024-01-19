@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import {useAppDispatch, useAppSelector} from '../../hooks/redux';
-import {actionAddCategory, actionLoadCategories} from "../../middlewares/apiCategories";
+import { useState } from 'react';
+import {useAppDispatch} from '../../hooks/redux';
+import {actionAddCategory} from "../../middlewares/apiCategories";
 import ICategory from "../../@types/Category";
 import InputColor from 'react-input-color';
 

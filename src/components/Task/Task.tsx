@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {TiEdit} from 'react-icons/ti'
 import {RiCloseCircleLine} from "react-icons/ri";
 import ITask from "../../@types/task";
