@@ -9,6 +9,10 @@ interface TaskProps {
 }
 function Task({ task }: TaskProps) {
 
+    /**
+     * on utilise le hook useAppDispatch pour pouvoir utiliser le dispatch
+     * on utilise le dispatch pour demander la suppression de la tâche à l'api sur le click de la poubelle
+     */
     const dispatch = useAppDispatch();
 
     return  (

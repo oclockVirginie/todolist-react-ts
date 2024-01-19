@@ -8,17 +8,8 @@ function CategoryForm() {
     const [inputValueLabel, setInputValueLabel] = useState('');
     const [inputColor, setinputColor] = useState('#5e72e4');
 
-
     const dispatch = useAppDispatch();
 
-    const formatOptionLabel = (cat : ICategory) => (
-        <div style={{ display: "flex" }}>
-
-            <div style={{ width: "100%", height:"100%", backgroundColor: "white", color:cat.color}}>
-                {cat.label}
-            </div>
-        </div>
-    );
     return (
         <form className="todo-form"
               onSubmit={(event) => {
@@ -30,6 +21,10 @@ function CategoryForm() {
                       label: inputValueLabel,
                       color: inputColor,
                   }
+                  /**
+                   * on crée un objet addCategoryInput qui contient les données de la category à ajouter
+                   * et on utilise le dispatch pour demander l'ajout de la category à l'api
+                   */
                   dispatch(actionAddCategory(addCategoryInput));
                   setInputValueLabel('');
               }}
@@ -47,7 +42,6 @@ function CategoryForm() {
             <InputColor
                 initialValue="#5e72e4"
                 onChange={(event) => {
-                    console.log(event.hex);
                     setinputColor(event.hex);
                 }}
                 placement="right"

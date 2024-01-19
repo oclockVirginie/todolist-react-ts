@@ -10,6 +10,11 @@ function  Login()     {
     const [inputValueEmail, setInputValueEmail] = useState('');
     const [inputValuePassword, setInputValuePassword] = useState('');
 
+    /**
+     * login permet de se connecter lors de la soumission du formulaire
+     * A déporter dans le middleware apiUser
+     * Mais laisser ici afin de savoir que bien sur on peut faire des appels api dans les composants
+     */
     const login = () => {
         let params = {
             username: inputValueEmail,

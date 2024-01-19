@@ -5,11 +5,6 @@ import CategoryForm from "../CategoryForm/CategoryForm";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {actionLoadCategories} from "../../middlewares/apiCategories";
 
-interface CategoriesProps {
-    categories: ICategory[];
-}
-
-
 
 function Categories() {
 
@@ -17,6 +12,12 @@ function Categories() {
 
     const categories = useAppSelector((state) => state.categories);
 
+    /**
+     * useEffect permet de demander le chargement des données au premier chargement du composant
+     * on utilise le dispatch pour demander le chargement des données à l'api
+     * on récupère les categories
+     *
+     */
     useEffect(
         () => {
             // au premier chargement du composant on demande le chargement des données

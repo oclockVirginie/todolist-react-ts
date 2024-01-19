@@ -15,32 +15,47 @@ function TaskForm() {
     const categories = useAppSelector((state) => state.categories);
     const dispatch = useAppDispatch();
 
+    /**
+     * useEffect permet de demander le chargement des données au premier chargement du composant
+     * on utilise le dispatch pour demander le chargement des données à l'api
+     * on recupere les categories pour les afficher dans le select
+     *
+     */
     useEffect(() => {
-        const inputElem = myInputRef.current as HTMLInputElement;
-        inputElem.focus();
         dispatch(actionLoadCategories());
-
     }, []);
 
 
+    /**
+     * juste une fonction empêcher la sousmission du formulaire si le champ category n'est pas rempli
+     */
     const enableButton = () => {
         setButtonDisabled(false);
     };
 
+    /**
+     * formatOptionLabel permet de formatter l'affichage des options du select
+     * @param cat
+     */
     const formatOptionLabel = (cat : ICategory) => (
         <div style={{ display: "flex" }}>
-
             <div style={{ width: "100%", height:"100%", backgroundColor: "white", color:cat.color}}>
                 {cat.label}
             </div>
         </div>
     );
+
     return (
         <form className="todo-form"
             onSubmit={(event) => {
                 event.preventDefault();
                   // au submit du form, on demande à ce que la nouvelle tache soit ajoutée coté back puis dans le state
 
+                /**
+                 * on crée un objet tasksAddTaskInput qui contient les données de la tâche à ajouter
+                 * on utilise le dispatch pour demander l'ajout de la tâche à l'api
+                 * et on vide l'input
+                 */
                 const tasksAddTaskInput = {
                         id : 0,
                         label: inputValueLabel,

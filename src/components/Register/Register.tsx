@@ -10,6 +10,11 @@ function  Register()     {
     const [inputValueEmail, setInputValueEmail] = useState('');
     const [inputValuePassword, setInputValuePassword] = useState('');
     const dispatch = useAppDispatch();
+
+    /**
+     * register permet de créer un nouvel utilisateur lors de la soumission du formulaire
+     * actionAddUser demande un user donc on crée un objet user avec les données du formulaire
+     */
     const register = () => {
         let params = {
             id : 0,
@@ -36,8 +41,6 @@ function  Register()     {
                                     event.preventDefault();
                                     register();
                                     // au submit du form, on demande à ce que la nouvelle tache soit ajoutée coté back puis dans le state
-
-
                                 }}>
                                     <div className="mb-3 mt-4">
                                         <label className="form-label">Email</label>
