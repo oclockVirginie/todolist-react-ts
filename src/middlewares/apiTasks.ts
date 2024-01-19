@@ -1,8 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import ITask from '../@types/task';
-
 import axiosInstance from "./ApiBase";
+
+/**
+ * On définit ici les actions suivantes :
+ *  - actionLoadTasks : charge les tâches
+ *  - actionDeleteTask : supprime une tâche
+ *  - actionAddTask : ajoute une tâche
+ */
 export const actionLoadTasks = createAsyncThunk<ITask[]>(
     'LOAD_TASKS',
     async () => {

@@ -1,12 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import ICategory from '../@types/Category';
-import ITask from "../@types/task";
 import axiosInstance from "./ApiBase";
 
 
-
-
+/**
+ * On définit ici les actions suivantes :
+ *
+ * - actionLoadCategories : charge les catégories
+ * - actionDeleteCategory : supprime une catégorie
+ * - actionAddCategory : ajoute une catégorie
+ *
+ */
 export const actionLoadCategories = createAsyncThunk<ICategory[]>(
     'LOAD_CATEGORIES',
     async () => {
